@@ -135,6 +135,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="data.php?cari=" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Data Monitoring</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="logout.php" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Logout</p>
@@ -144,6 +150,7 @@
       </nav>
   </div>
   </aside>
+
 
   <div class="content-wrapper">
     <div class="content-header">
@@ -238,8 +245,10 @@
   </div>
 
 
-  <!-- jQuery -->
-  <script src="plugins/jquery/jquery.min.js"></script>
+  
+</body>
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
   =
   <!-- jQuery UI 1.11.4 -->
   <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
@@ -273,6 +282,4 @@
   <script src="dist/js/demo.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="dist/js/pages/dashboard.js"></script>
-</body>
-
 </html>

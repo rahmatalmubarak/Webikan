@@ -13,15 +13,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
-            <div class="card col-10">
+        <div class="row justify-content-center">
+            <div class="card col-10 text-center">
                 <h1>Data Monitoring Kolam Ikan</h1>
-                <form action="cari.php" method="post" class="form-inline">
-                    <div class="from-group mb-2">
-                        <input type="date" name="tanggal" id="tanggal">
+                <div class="row justify-content-center">
+                    <form action="data.php" method="get" class="form-inline">
+                    <div class="from-group">
+                        <input type="date" name="cari" id="tanggal">
                     </div>
-                    <button type="submit" class="btn btn-primary mb-2">Cari</button>
-                </form>
+                    <div class="form-group col-sm-2">
+                    <button type="submit"  class="btn btn-primary mb-2">Cari</button>
+                    </div>
+                    </form>
+                </div>
+                
                 <div class="card-body">
                     <table class="table">
                         <thead class="thead-dark">
@@ -35,12 +40,33 @@
                         </thead>
                         <tbody> 
                             <?php 
-                                include "cari.php";
+                                include 'koneksi.php';
+                                $batas = 10;
+                                $halaman =isset($_GET['halaman'])?(int)$_GET['halaman'] : 1;
+                                $hal_awal = ($halaman>1) ? ($halaman * $batas) - $batas : 0;
+                                $previous = $halaman-1;
+                                $next = $halaman +1;
+                                $data =  mysqli_query($con, "SELECT avg(format(suhu,2)) as suhu, avg(format(ketinggian,2)) as ketinggian, if(count(cuaca = 'hujan') > count(cuaca = 'tidak hujan'), 'Hujan', 'Tidak Hujan') as cuaca, LEFT(waktu, 10) as waktu FROM datasensor GROUP BY day(waktu)");
+                                $jumlah_data = mysqli_num_rows($data);
+                                $total_hal = ceil($jumlah_data / $batas);
+                                $no = $hal_awal +1;
+                                if ($_GET['cari']) {
+                                    $cari = $_GET['cari'];
+                                $sql =  mysqli_query($con, "SELECT avg(format(suhu,2)) as suhu, avg(format(ketinggian,2)) as ketinggian, if(count(cuaca = 'hujan') > count(cuaca = 'tidak hujan'), 'Hujan', 'Tidak Hujan') as cuaca, LEFT(waktu, 10) as waktu FROM datasensor WHERE LEFT(waktu, 10) = '$cari' GROUP BY day(waktu) LIMIT $hal_awal, $batas");
+
+                                }else if (!$_GET['cari'] == null){
+                                    $sql =  mysqli_query($con, "SELECT avg(format(suhu,2)) as suhu, avg(format(ketinggian,2)) as ketinggian, if(count(cuaca = 'hujan') > count(cuaca = 'tidak hujan'), 'Hujan', 'Tidak Hujan') as cuaca, LEFT(waktu, 10) as waktu FROM datasensor WHERE day(waktu)  GROUP BY day(waktu)  ORDER BY day(waktu) DESC LIMIT $hal_awal, $batas");
+                                }else{
+                                    $sql =  mysqli_query($con, "SELECT avg(format(suhu,2)) as suhu, avg(format(ketinggian,2)) as ketinggian, if(count(cuaca = 'hujan') > count(cuaca = 'tidak hujan'), 'Hujan', 'Tidak Hujan') as cuaca, LEFT(waktu, 10) as waktu FROM datasensor WHERE day(waktu)  GROUP BY day(waktu)  ORDER BY day(waktu) DESC LIMIT $hal_awal, $batas");
+                                }
+                               
                                 $result = array();
-                                while($row = msyqli_fetch_array($sql)){
+                                while($row = $sql -> fetch_array()){
                                     $result[] = $row;
                                 }   
-                                $no = 1;
+                                
+                                
+                                
                                 foreach ($result as $res) {
                                 
                             ?>
@@ -55,6 +81,23 @@
 
                         </tbody>
                     </table>
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link"<?php if($halaman > 1){echo "href='?cari=&halaman=$previous'";} ?>>Previous</a>
+                            </li>
+                        <?php
+                         for($x=1; $x<=$total_hal;$x++){
+                            ?>
+                            <li class="page-item"><a class="page-link" href="?cari=&halaman=<?php echo $x?>"><?php echo $x;?></a></li>
+                        <?php
+                        }
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link" <?php if($halaman < $total_hal) {echo "href='?cari=&halaman=$next'";}?>>Next</a>
+                        </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
