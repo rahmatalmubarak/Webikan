@@ -14,7 +14,7 @@
         $("#suhu").load('ceksuhu.php');
         $("#ketinggian").load('cekketinggian.php');
         $("#cuaca").load('cekcuaca.php');
-      }, 500);
+      }, 10);
     });
   </script>
   </script>
@@ -22,14 +22,14 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#ceksuhu").load('ceksuhu.php');
-      }, 1000);
+      }, 10);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#ketsuhu").load('ketsuhu.php');
-      }, 1000);
+      }, 10);
     });
   </script>
   </script>
@@ -37,21 +37,21 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#cekketinggian").load('cekketinggian.php');
-      }, 1000);
+      }, 10);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#ket").load('ketketinggian.php');
-      }, 1000);
+      }, 10);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#cekcuaca").load('cekcuaca.php');
-      }, 1000);
+      }, 10);
     });
   </script>
   <script type="text/javascript">
