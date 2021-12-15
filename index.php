@@ -8,15 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      setInterval(function() {
-        $("#suhu").load('ceksuhu.php');
-        $("#ketinggian").load('cekketinggian.php');
-        $("#cuaca").load('cekcuaca.php');
-      }, 10);
-    });
-  </script>
+
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
@@ -37,21 +29,21 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#cekketinggian").load('cekketinggian.php');
-      }, 10);
+      }, 100);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#ket").load('ketketinggian.php');
-      }, 10);
+      }, 100);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#cekcuaca").load('cekcuaca.php');
-      }, 10);
+      }, 100);
     });
   </script>
   <script type="text/javascript">
