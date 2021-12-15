@@ -62,6 +62,9 @@
                                
                                 $result = array();
                                 while($row = $sql -> fetch_array()){
+                                    $suhu = number_format($row["suhu"], 2);
+                                    $ketinggian = number_format($row["ketinggian"], 2);
+                                    $waktu = $row["waktu"];
                                     $result[] = $row;
                                 }   
                                 
@@ -72,8 +75,8 @@
                             ?>
                             <tr>
                                 <td><?php echo $no++ ?></td>
-                                <td><?php echo $res['suhu']. " ℃"; ?></td>
-                                <td><?php echo $res['ketinggian']." Cm" ; ?></td>
+                                <td><?php echo $suhu. " ℃"; ?></td>
+                                <td><?php echo $ketinggian." Cm" ; ?></td>
                                 <td><?php echo $res['cuaca']; ?></td>
                                 <td><?php echo $res['waktu']; ?></td>
                             </tr>
