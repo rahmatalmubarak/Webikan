@@ -72,8 +72,8 @@
                             ?>
                             <tr>
                                 <td><?php echo $no++ ?></td>
-                                <td><?php echo $res['suhu']; ?></td>
-                                <td><?php echo $res['ketinggian']; ?></td>
+                                <td><?php echo $res['suhu']. " ℃"; ?></td>
+                                <td><?php echo $res['ketinggian']." Cm" ; ?></td>
                                 <td><?php echo $res['cuaca']; ?></td>
                                 <td><?php echo $res['waktu']; ?></td>
                             </tr>
