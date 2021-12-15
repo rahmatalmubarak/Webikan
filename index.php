@@ -22,14 +22,14 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#ceksuhu").load('ceksuhu.php');
-      }, 10);
+      }, 100);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#ketsuhu").load('ketsuhu.php');
-      }, 10);
+      }, 100);
     });
   </script>
   </script>
@@ -58,7 +58,7 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#tabelsensor").load('tabelSensor.php');
-      }, 10);
+      }, 100);
     });
   </script> -->
   <!-- Google Font: Source Sans Pro -->
