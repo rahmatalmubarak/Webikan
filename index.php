@@ -14,7 +14,7 @@
         $("#suhu").load('ceksuhu.php');
         $("#ketinggian").load('cekketinggian.php');
         $("#cuaca").load('cekcuaca.php');
-      }, 100);
+      }, 1000);
     });
   </script>
   </script>
@@ -22,14 +22,14 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#ceksuhu").load('ceksuhu.php');
-      }, 100);
+      }, 1000);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#ketsuhu").load('ketsuhu.php');
-      }, 100);
+      }, 1000);
     });
   </script>
   </script>
@@ -37,30 +37,30 @@
     $(document).ready(function() {
       setInterval(function() {
         $("#cekketinggian").load('cekketinggian.php');
-      }, 100);
+      }, 1000);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#ket").load('ketketinggian.php');
-      }, 100);
+      }, 1000);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#cekcuaca").load('cekcuaca.php');
-      }, 100);
+      }, 1000);
     });
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
       setInterval(function() {
         $("#tabelsensor").load('tabelSensor.php');
-      }, 100);
+      }, 1000);
     });
-  </script> -->
+  </script> 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
