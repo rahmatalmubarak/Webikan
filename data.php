@@ -39,6 +39,7 @@
                             </tr>
                         </thead>
                         <tbody> 
+                            
                             <?php 
                                 include 'koneksi.php';
                                 $batas = 10;
